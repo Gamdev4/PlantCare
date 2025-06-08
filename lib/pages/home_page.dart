@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
 
         // Image
         child: Center(
-          child: Column(
+          child: ListView(
             children: [
               Image.asset('assets/images/plant.png',
                 width: 400,
