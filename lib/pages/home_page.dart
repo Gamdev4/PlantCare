@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:namer_app/constants/app_constants.dart';
 import 'package:namer_app/pages/notifications_page.dart';
+import 'package:namer_app/widgets/batery_level.dart';
+import 'package:namer_app/widgets/humidity_level.dart';
+import 'package:namer_app/widgets/watering_button.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -56,35 +59,28 @@ class HomePage extends StatelessWidget {
               ),
 
               // Watering button
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: GestureDetector(
-                  onTap: () {
-                    // This is just a placeholder for the actual logic
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Watering the plants...')),
-                    );
-                  },	
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[800],
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  padding: const EdgeInsets.all(20.0),
-                  child: const Center(
-                    child: Text(
-                      AppConstants.wateringButtonText,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                )
+              WateringButton(
+                onPressed: () {
+                  // Implement watering logic
+                },
               ),
-              
+
+              // Battery and Humidity levels
+              Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 20), // Padding externo de 20
+                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                    Expanded(
+                     child: HumidityLevel(),
+                    ),
+                    SizedBox(width: 10), // Reducimos la separación interna a 10
+                    Expanded(
+                    child: BateryLevel(),
+      ),
+    ],
+  ),
+),
             ],
           ),
         ),
