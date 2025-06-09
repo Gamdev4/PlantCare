@@ -77,10 +77,10 @@ class HomePage extends StatelessWidget {
                     SizedBox(width: 10), // Reducimos la separación interna a 10
                     Expanded(
                     child: BateryLevel(),
-      ),
-    ],
-  ),
-),
+                    ),
+                  ],
+                  ),
+              ),
             ],
           ),
         ),
