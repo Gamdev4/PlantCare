@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/constants/app_constants.dart';
+import 'package:namer_app/l10n/app_localizations.dart';
 
 class BateryLevel extends StatelessWidget {
   BateryLevel({super.key});
@@ -12,7 +12,7 @@ class BateryLevel extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 12.0),
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 0.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
@@ -28,7 +28,7 @@ class BateryLevel extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppConstants.batteryLevel,
+                  AppLocalizations.of(context)!.batteryLevel,
                   style: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,

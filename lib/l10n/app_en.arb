@@ -1,0 +1,18 @@
+{
+  "@@locale": "en",
+  "appTitle": "My Garden",
+  "wateringButtonText": "Watering Plants",
+  "wateringPlants": "Watering the Plants...",
+  "notificationsTitle": "Notifications",
+  "noNotifications": "No notifications yet!",
+  "settingsTitle": "Settings",
+  "lightDarkMode": "Light/Dark Mode",
+  "language": "Language",
+  "languageSelection": "Language",
+  "humidityLevel": "Humidity Level",
+  "batteryLevel": "Battery Level",
+  "languageEnglishUS": "English",
+  "languageSpanishMX": "Spanish",
+  "languageJapanese": "Japanese",
+  "languageFrench": "French"
+}

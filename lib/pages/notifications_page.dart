@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/constants/app_constants.dart';
+import 'package:namer_app/l10n/app_localizations.dart';
 
 class NotificationsPage extends StatelessWidget{
   NotificationsPage({super.key});
@@ -8,9 +8,10 @@ class NotificationsPage extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
     backgroundColor: const Color.fromARGB(255, 122, 122, 122),
-      
+    
+      // Bar
       appBar: AppBar(
-        title: const Text(AppConstants.notificationsTitle, style: TextStyle(color: Colors.white,fontSize: 24),),
+        title: Text(AppLocalizations.of(context)!.notificationsTitle, style: TextStyle(color: Colors.white,fontSize: 24),),
         centerTitle: false,
         backgroundColor: const Color.fromARGB(255, 122, 122, 122),
         iconTheme: const IconThemeData(color: Colors.white),
@@ -18,7 +19,7 @@ class NotificationsPage extends StatelessWidget{
       
       body: Center(
           child: Text(
-            AppConstants.noNotifications,
+            AppLocalizations.of(context)!.noNotifications,
             style: TextStyle(fontSize: 20, color: Colors.white),
           ),
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:namer_app/constants/app_constants.dart';
+import 'package:namer_app/l10n/app_localizations.dart';
+import 'package:namer_app/pages/drawer/settings.dart';
 import 'package:namer_app/pages/notifications_page.dart';
 import 'package:namer_app/widgets/batery_level.dart';
 import 'package:namer_app/widgets/humidity_level.dart';
@@ -11,11 +13,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const SettingsDrawer(),
 
       // Bar
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text(AppConstants.appTitle, style: TextStyle(
+        title: Text(AppLocalizations.of(context)!.appTitle, style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
           color: Colors.white,
@@ -23,6 +26,14 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: Colors.grey[800],
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.settings, color: Colors.white),
+            onPressed: () {
+             Scaffold.of(context).openDrawer();
+            },
+          ),
+        ),
         actions: [
           IconButton(
             icon: const Icon(
@@ -30,7 +41,10 @@ class HomePage extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationsPage()));
+              Navigator.push(
+                context, 
+                MaterialPageRoute(builder: (context) => NotificationsPage()),
+              );
             },
           ),
         ],
@@ -53,7 +67,7 @@ class HomePage extends StatelessWidget {
         child: Center(
           child: ListView(
             children: [
-              Image.asset('assets/images/plant.png',
+              Image.asset(AppConstants.plantImage,
                 width: 400,
                 height: 400,
               ),
@@ -67,14 +81,14 @@ class HomePage extends StatelessWidget {
 
               // Battery and Humidity levels
               Padding(
-                 padding: const EdgeInsets.symmetric(horizontal: 20), // Padding externo de 20
+                 padding: const EdgeInsets.symmetric(horizontal: 20),
                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                     Expanded(
                      child: HumidityLevel(),
                     ),
-                    SizedBox(width: 10), // Reducimos la separación interna a 10
+                    SizedBox(width: 10),
                     Expanded(
                     child: BateryLevel(),
                     ),

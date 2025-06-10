@@ -1,0 +1,18 @@
+{
+  "@@locale": "ja",
+  "appTitle": "私の庭",
+  "wateringButtonText": "植物に水をやる",
+  "wateringPlants": "植物に水をやっています...",
+  "notificationsTitle": "通知",
+  "noNotifications": "通知はまだありません！",
+  "settingsTitle": "設定",
+  "lightDarkMode": "ライト/ダークモード",
+  "language": "言語",
+  "languageSelection": "言語選択",
+  "humidityLevel": "湿度レベル",
+  "batteryLevel": "バッテリーレベル",
+  "languageEnglishUS": "英語",
+  "languageSpanishMX": "スペイン語",
+  "languageJapanese": "日本語",
+  "languageFrench": "フランス語"
+}

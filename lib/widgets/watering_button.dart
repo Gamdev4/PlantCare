@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/constants/app_constants.dart';
+import 'package:namer_app/l10n/app_localizations.dart';
 
 class WateringButton extends StatefulWidget{
   final VoidCallback onPressed;
@@ -53,7 +53,7 @@ class _WateringButtonState extends State<WateringButton> {
                 color: Colors.white,
               ),
               child: Text(
-                _isPressed ? AppConstants.wateringPlants : AppConstants.wateringButtonText,),
+                _isPressed ? AppLocalizations.of(context)!.wateringPlants : AppLocalizations.of(context)!.wateringButtonText,),
             ),
           ),
       ),

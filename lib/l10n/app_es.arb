@@ -1,0 +1,18 @@
+{
+  "@@locale": "es",
+  "appTitle": "Mi Jardín",
+  "wateringButtonText": "Regar Plantas",
+  "wateringPlants": "Regando las Plantas...",
+  "notificationsTitle": "Notificaciones",
+  "noNotifications": "¡No hay notificaciones aún!",
+  "settingsTitle": "Configuración",
+  "lightDarkMode": "Modo Claro/Oscuro",
+  "language": "Idioma",
+  "languageSelection": "Idioma",
+  "humidityLevel": "Nivel de Humedad",
+  "batteryLevel": "Nivel de Batería",
+  "languageEnglishUS": "Inglés",
+  "languageSpanishMX": "Español",
+  "languageJapanese": "Japonés",
+  "languageFrench": "Frances"
+}

@@ -1,0 +1,18 @@
+{
+  "@@locale": "fr",
+  "appTitle": "Mon Jardin",
+  "wateringButtonText": "Arroser les Plantes",
+  "wateringPlants": "Arrosage des Plantes...",
+  "notificationsTitle": "Notifications",
+  "noNotifications": "Pas de notifications pour le moment !",
+  "settingsTitle": "Paramètres",
+  "lightDarkMode": "Mode Clair/Sombre",
+  "language": "Langue",
+  "languageSelection": "Langue",
+  "humidityLevel": "Niveau d'Humidité",
+  "batteryLevel": "Niveau de Batterie",
+  "languageEnglishUS": "Anglais",
+  "languageSpanishMX": "Espagnol",
+  "languageJapanese": "Japonais",
+  "languageFrench": "Français"
+}

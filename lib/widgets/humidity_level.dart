@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:namer_app/constants/app_constants.dart';
+import 'package:namer_app/l10n/app_localizations.dart';
 
 class HumidityLevel extends StatelessWidget {
   HumidityLevel({super.key});
@@ -12,7 +12,7 @@ class HumidityLevel extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 12.0),
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 0.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
@@ -28,7 +28,7 @@ class HumidityLevel extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppConstants.humidityLevel,
+                  AppLocalizations.of(context)!.humidityLevel,
                   style: const TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
