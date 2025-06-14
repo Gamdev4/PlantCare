@@ -18,10 +18,16 @@ class AppLocalizationsFr extends AppLocalizations {
   String get wateringPlants => 'Arrosage des Plantes...';
 
   @override
+  String get humidityLevel => 'Niveau d\'Humidité';
+
+  @override
+  String get batteryLevel => 'Niveau de Batterie';
+
+  @override
   String get notificationsTitle => 'Notifications';
 
   @override
-  String get noNotifications => 'Pas de notifications pour le moment !';
+  String get noNotifications => 'Pas encore de notifications !';
 
   @override
   String get settingsTitle => 'Paramètres';
@@ -34,12 +40,6 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get languageSelection => 'Langue';
-
-  @override
-  String get humidityLevel => 'Niveau d\'Humidité';
-
-  @override
-  String get batteryLevel => 'Niveau de Batterie';
 
   @override
   String get languageEnglishUS => 'Anglais';

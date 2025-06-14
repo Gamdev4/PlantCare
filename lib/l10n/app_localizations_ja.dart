@@ -9,37 +9,37 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get appTitle => '私の庭';
+  String get appTitle => 'マイガーデン';
 
   @override
   String get wateringButtonText => '植物に水をやる';
 
   @override
-  String get wateringPlants => '植物に水をやっています...';
-
-  @override
-  String get notificationsTitle => '通知';
-
-  @override
-  String get noNotifications => '通知はまだありません！';
-
-  @override
-  String get settingsTitle => '設定';
-
-  @override
-  String get lightDarkMode => 'ライト/ダークモード';
-
-  @override
-  String get language => '言語';
-
-  @override
-  String get languageSelection => '言語選択';
+  String get wateringPlants => '植物に水をやっています…';
 
   @override
   String get humidityLevel => '湿度レベル';
 
   @override
   String get batteryLevel => 'バッテリーレベル';
+
+  @override
+  String get notificationsTitle => '通知';
+
+  @override
+  String get noNotifications => 'まだ通知はありません！';
+
+  @override
+  String get settingsTitle => '設定';
+
+  @override
+  String get lightDarkMode => 'ライト／ダークモード';
+
+  @override
+  String get language => '言語';
+
+  @override
+  String get languageSelection => '言語';
 
   @override
   String get languageEnglishUS => '英語';

@@ -1,18 +1,37 @@
 {
   "@@locale": "ja",
-  "appTitle": "私の庭",
+  "appTitle": "マイガーデン",
+  "@appTitle": {},
+
   "wateringButtonText": "植物に水をやる",
-  "wateringPlants": "植物に水をやっています...",
-  "notificationsTitle": "通知",
-  "noNotifications": "通知はまだありません！",
-  "settingsTitle": "設定",
-  "lightDarkMode": "ライト/ダークモード",
-  "language": "言語",
-  "languageSelection": "言語選択",
+  "@wateringButtonText": {},
+  "wateringPlants": "植物に水をやっています…",
+  "@wateringPlants": {},
   "humidityLevel": "湿度レベル",
+  "@humidityLevel": {},
   "batteryLevel": "バッテリーレベル",
+  "@batteryLevel": {},
+
+  "notificationsTitle": "通知",
+  "@notificationsTitle": {},
+  "noNotifications": "まだ通知はありません！",
+  "@noNotifications": {},
+
+  "settingsTitle": "設定",
+  "@settingsTitle": {},
+  "lightDarkMode": "ライト／ダークモード",
+  "@lightDarkMode": {},
+  "language": "言語",
+  "@language": {},
+
+  "languageSelection": "言語",
+  "@languageSelection": {},
   "languageEnglishUS": "英語",
+  "@languageEnglishUS": {},
   "languageSpanishMX": "スペイン語",
+  "@languageSpanishMX": {},
   "languageJapanese": "日本語",
-  "languageFrench": "フランス語"
+  "@languageJapanese": {},
+  "languageFrench": "フランス語",
+  "@languageFrench": {}
 }

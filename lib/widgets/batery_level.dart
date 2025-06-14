@@ -36,7 +36,7 @@ class BateryLevel extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "100%", // Example battery level
+                  "N/A", // Example battery level
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

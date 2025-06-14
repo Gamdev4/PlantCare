@@ -120,6 +120,18 @@ abstract class AppLocalizations {
   /// **'Watering the Plants...'**
   String get wateringPlants;
 
+  /// No description provided for @humidityLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Humidity Level'**
+  String get humidityLevel;
+
+  /// No description provided for @batteryLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery Level'**
+  String get batteryLevel;
+
   /// No description provided for @notificationsTitle.
   ///
   /// In en, this message translates to:
@@ -155,18 +167,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language'**
   String get languageSelection;
-
-  /// No description provided for @humidityLevel.
-  ///
-  /// In en, this message translates to:
-  /// **'Humidity Level'**
-  String get humidityLevel;
-
-  /// No description provided for @batteryLevel.
-  ///
-  /// In en, this message translates to:
-  /// **'Battery Level'**
-  String get batteryLevel;
 
   /// No description provided for @languageEnglishUS.
   ///

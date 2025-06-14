@@ -3,7 +3,7 @@ import 'package:namer_app/l10n/app_localizations.dart';
 
 class WateringButton extends StatefulWidget{
   final VoidCallback onPressed;
-  const WateringButton({super.key, required this.onPressed});
+  const WateringButton({super.key, required this.onPressed, required bool isActive});
 
   @override
   State<WateringButton> createState() => _WateringButtonState();
@@ -30,7 +30,7 @@ class _WateringButtonState extends State<WateringButton> {
             if (mounted) setState(() => _isPressing = false);
           });
           setState(() => _isPressed = true);
-          Future.delayed(const Duration(milliseconds: 2000), () {
+          Future.delayed(const Duration(milliseconds: 5000), () {
             if (mounted) setState(() => _isPressed = false);
           });
           widget.onPressed();

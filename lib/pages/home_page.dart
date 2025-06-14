@@ -1,4 +1,6 @@
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:namer_app/constants/app_constants.dart';
 import 'package:namer_app/l10n/app_localizations.dart';
 import 'package:namer_app/pages/drawer/settings.dart';
@@ -7,34 +9,169 @@ import 'package:namer_app/widgets/batery_level.dart';
 import 'package:namer_app/widgets/humidity_level.dart';
 import 'package:namer_app/widgets/watering_button.dart';
 
-class HomePage extends StatelessWidget {
-  HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _isWatering = false;
+  BluetoothConnection? _connection;
+  bool _isConnecting = false;
+  String _connectionStatus = 'Disconnected';
+  int _humidityLevel = 0;
+  List<BluetoothDevice> _devices = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _initBluetooth();
+  }
+
+  Future<void> _initBluetooth() async {
+    bool enabled = await FlutterBluetoothSerial.instance.isEnabled ?? false;
+    if (!enabled) {
+      await FlutterBluetoothSerial.instance.requestEnable();
+    }
+
+    _devices = await FlutterBluetoothSerial.instance.getBondedDevices();
+
+    for (var device in _devices) {
+      if (device.name?.contains("HC-05") == true || 
+          device.name?.contains("Arduino") == true) {
+        _connectToDevice(device);
+        break;
+      }
+    }
+  }
+
+  Future<void> _connectToDevice(BluetoothDevice device) async {
+    try {
+      _updateStatus('Connecting...');
+      setState(() => _isConnecting = true);
+
+      _connection = await BluetoothConnection.toAddress(device.address);
+      
+      setState(() {
+        _connectionStatus = 'Connected';
+      });
+
+      _connection!.input!.listen((Uint8List data) {
+        String message = String.fromCharCodes(data).trim();
+        _processBluetoothData(message);
+      }).onDone(() {
+        _updateStatus('Disconneted');
+      });
+
+    } catch (e) {
+      _updateStatus('Connection error');
+    } finally {
+      setState(() => _isConnecting = false);
+    }
+  }
+
+  void _processBluetoothData(String message) {
+    if (message.startsWith("P:")) {
+      setState(() {
+        _humidityLevel = int.tryParse(message.substring(2).replaceAll("%", "")) ?? 0;
+      });
+    } else if (message == "ON") {
+      setState(() => _isWatering = true);
+    } else if (message == "OFF") {
+      setState(() => _isWatering = false);
+    }
+  }
+
+  Future<void> _sendCommand(String command) async {
+    if (_connection != null && _connection!.isConnected) {
+      try {
+        _connection!.output.add(Uint8List.fromList(command.codeUnits));
+        await _connection!.output.allSent;
+        debugPrint('Command sent: $command');
+      } catch (e) {
+        debugPrint('Error sending command: $e');
+        _updateStatus('Error sending');
+      }
+    } else {
+      debugPrint('No active Bluetooth connection');
+      _updateStatus('Not connected');
+    }
+  }
+
+  void _updateStatus(String status) {
+    if (mounted) {
+      setState(() => _connectionStatus = status);
+    }
+  }
+
+  @override
+  void dispose() {
+    _connection?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const SettingsDrawer(),
-
-      // Bar
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(AppLocalizations.of(context)!.appTitle, style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Theme.of(context).colorScheme.onPrimary,
-        ),
+        title: Column(
+          children: [
+            Text(
+              AppLocalizations.of(context)!.appTitle,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+            ),
+            Text(
+              _connectionStatus,
+              style: TextStyle(
+                fontSize: 12,
+                color: _isConnecting 
+                    ? Colors.amber 
+                    : _connection != null 
+                        ? Colors.green 
+                        : Colors.red,
+              ),
+            ),
+          ],
         ),
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.primary,
         leading: Builder(
           builder: (context) => IconButton(
-            icon: Icon(Icons.settings, color: Theme.of(context).colorScheme.onPrimary),
-            onPressed: () {
-             Scaffold.of(context).openDrawer();
-            },
+            icon: Icon(
+              Icons.settings, 
+              color: Theme.of(context).colorScheme.onPrimary
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
         actions: [
+          PopupMenuButton<BluetoothDevice>(
+            icon: Icon(
+              Icons.bluetooth,
+              color: _connection != null 
+                  ? Colors.green[200] 
+                  : Theme.of(context).colorScheme.onPrimary,
+            ),
+            itemBuilder: (context) {
+              return _devices.map((device) {
+                return PopupMenuItem(
+                  value: device,
+                  child: Text(device.name ?? "Disconnected Device"),
+                );
+              }).toList();
+            },
+            onSelected: (device) {
+              _connectToDevice(device);
+            },
+          ),
           IconButton(
             icon: Icon(
               Icons.notifications,
@@ -49,6 +186,8 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+
+
 
       // Background
       body: Container(
@@ -67,38 +206,49 @@ class HomePage extends StatelessWidget {
         child: Center(
           child: ListView(
             children: [
-              Image.asset(AppConstants.plantImage,
+              Image.asset(
+                AppConstants.plantImage,
                 width: 400,
                 height: 400,
               ),
 
-              // Watering button
+              // Watering Button
               WateringButton(
+                isActive: _isWatering,
                 onPressed: () {
-                  // Implement watering logic
+                  if (!_isWatering) {
+                    setState(() => _isWatering = true);
+                    _sendCommand('1');
+                    
+                    Future.delayed(const Duration(seconds: 5), () {
+                      if (mounted) {
+                        setState(() => _isWatering = false);
+                        _sendCommand('0');
+                      }
+                    });
+                  }
                 },
               ),
 
-              // Battery and Humidity levels
+              // Humedity and Batery Level
               Padding(
-                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                 child: Row(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                  children: [
                     Expanded(
-                     child: HumidityLevel(),
+                      child: HumidityLevel(humidity: _humidityLevel),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Expanded(
-                    child: BateryLevel(),
+                      child: BateryLevel(),
                     ),
                   ],
-                  ),
+                ),
               ),
             ],
           ),
         ),
-
       ),
 
 

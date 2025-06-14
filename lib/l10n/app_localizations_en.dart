@@ -18,6 +18,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get wateringPlants => 'Watering the Plants...';
 
   @override
+  String get humidityLevel => 'Humidity Level';
+
+  @override
+  String get batteryLevel => 'Battery Level';
+
+  @override
   String get notificationsTitle => 'Notifications';
 
   @override
@@ -34,12 +40,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get languageSelection => 'Language';
-
-  @override
-  String get humidityLevel => 'Humidity Level';
-
-  @override
-  String get batteryLevel => 'Battery Level';
 
   @override
   String get languageEnglishUS => 'English';

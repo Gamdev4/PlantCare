@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:namer_app/l10n/app_localizations.dart';
 
 class HumidityLevel extends StatelessWidget {
-  HumidityLevel({super.key});
+  final int humidity;
+  
+  const HumidityLevel({
+    super.key,
+    required this.humidity,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +41,7 @@ class HumidityLevel extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "100%", // Example humedity level
+                  "$humidity%",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

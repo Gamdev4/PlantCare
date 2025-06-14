@@ -1,18 +1,37 @@
 {
   "@@locale": "es",
   "appTitle": "Mi Jardín",
+  "@appTitle": {},
+
   "wateringButtonText": "Regar Plantas",
+  "@wateringButtonText": {},
   "wateringPlants": "Regando las Plantas...",
-  "notificationsTitle": "Notificaciones",
-  "noNotifications": "¡No hay notificaciones aún!",
-  "settingsTitle": "Configuración",
-  "lightDarkMode": "Modo Claro/Oscuro",
-  "language": "Idioma",
-  "languageSelection": "Idioma",
+  "@wateringPlants": {},
   "humidityLevel": "Nivel de Humedad",
+  "@humidityLevel": {},
   "batteryLevel": "Nivel de Batería",
+  "@batteryLevel": {},
+
+  "notificationsTitle": "Notificaciones",
+  "@notificationsTitle": {},
+  "noNotifications": "¡Aún no hay notificaciones!",
+  "@noNotifications": {},
+
+  "settingsTitle": "Configuraciones",
+  "@settingsTitle": {},
+  "lightDarkMode": "Modo Claro/Oscuro",
+  "@lightDarkMode": {},
+  "language": "Idioma",
+  "@language": {},
+
+  "languageSelection": "Idioma",
+  "@languageSelection": {},
   "languageEnglishUS": "Inglés",
+  "@languageEnglishUS": {},
   "languageSpanishMX": "Español",
+  "@languageSpanishMX": {},
   "languageJapanese": "Japonés",
-  "languageFrench": "Frances"
+  "@languageJapanese": {},
+  "languageFrench": "Francés",
+  "@languageFrench": {}
 }

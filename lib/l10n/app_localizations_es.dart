@@ -18,13 +18,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String get wateringPlants => 'Regando las Plantas...';
 
   @override
+  String get humidityLevel => 'Nivel de Humedad';
+
+  @override
+  String get batteryLevel => 'Nivel de Batería';
+
+  @override
   String get notificationsTitle => 'Notificaciones';
 
   @override
-  String get noNotifications => '¡No hay notificaciones aún!';
+  String get noNotifications => '¡Aún no hay notificaciones!';
 
   @override
-  String get settingsTitle => 'Configuración';
+  String get settingsTitle => 'Configuraciones';
 
   @override
   String get lightDarkMode => 'Modo Claro/Oscuro';
@@ -36,12 +42,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get languageSelection => 'Idioma';
 
   @override
-  String get humidityLevel => 'Nivel de Humedad';
-
-  @override
-  String get batteryLevel => 'Nivel de Batería';
-
-  @override
   String get languageEnglishUS => 'Inglés';
 
   @override
@@ -51,5 +51,5 @@ class AppLocalizationsEs extends AppLocalizations {
   String get languageJapanese => 'Japonés';
 
   @override
-  String get languageFrench => 'Frances';
+  String get languageFrench => 'Francés';
 }
