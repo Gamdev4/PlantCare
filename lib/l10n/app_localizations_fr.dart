@@ -52,4 +52,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get languageFrench => 'Français';
+
+  @override
+  String get languageChinese => 'Chinois';
+
+  @override
+  String get languageKorean => 'Coréen';
 }

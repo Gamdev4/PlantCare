@@ -33,5 +33,9 @@
   "languageJapanese": "Japonais",
   "@languageJapanese": {},
   "languageFrench": "Français",
-  "@languageFrench": {}
+  "@languageFrench": {},
+  "languageChinese": "Chinois",
+  "@languageChinese": {},
+  "languageKorean": "Coréen",
+  "@languageKorean": {}
 }

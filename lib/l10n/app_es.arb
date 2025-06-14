@@ -17,7 +17,7 @@
   "noNotifications": "¡Aún no hay notificaciones!",
   "@noNotifications": {},
 
-  "settingsTitle": "Configuraciones",
+  "settingsTitle": "Configuración",
   "@settingsTitle": {},
   "lightDarkMode": "Modo Claro/Oscuro",
   "@lightDarkMode": {},
@@ -33,5 +33,9 @@
   "languageJapanese": "Japonés",
   "@languageJapanese": {},
   "languageFrench": "Francés",
-  "@languageFrench": {}
+  "@languageFrench": {},
+  "languageChinese": "Chino",
+  "@languageChinese": {},
+  "languageKorean": "Coreano",
+  "@languageKorean": {}
 }

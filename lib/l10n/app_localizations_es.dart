@@ -30,7 +30,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get noNotifications => '¡Aún no hay notificaciones!';
 
   @override
-  String get settingsTitle => 'Configuraciones';
+  String get settingsTitle => 'Configuración';
 
   @override
   String get lightDarkMode => 'Modo Claro/Oscuro';
@@ -52,4 +52,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get languageFrench => 'Francés';
+
+  @override
+  String get languageChinese => 'Chino';
+
+  @override
+  String get languageKorean => 'Coreano';
 }

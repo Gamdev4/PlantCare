@@ -1,11 +1,11 @@
 {
   "@@locale": "ja",
-  "appTitle": "マイガーデン",
+  "appTitle": "私の庭",
   "@appTitle": {},
 
   "wateringButtonText": "植物に水をやる",
   "@wateringButtonText": {},
-  "wateringPlants": "植物に水をやっています…",
+  "wateringPlants": "植物に水やり中...",
   "@wateringPlants": {},
   "humidityLevel": "湿度レベル",
   "@humidityLevel": {},
@@ -33,5 +33,9 @@
   "languageJapanese": "日本語",
   "@languageJapanese": {},
   "languageFrench": "フランス語",
-  "@languageFrench": {}
+  "@languageFrench": {},
+  "languageChinese": "中国語",
+  "@languageChinese": {},
+  "languageKorean": "韓国語",
+  "@languageKorean": {}
 }

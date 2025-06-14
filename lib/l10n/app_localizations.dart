@@ -9,6 +9,8 @@ import 'app_localizations_en.dart';
 import 'app_localizations_es.dart';
 import 'app_localizations_fr.dart';
 import 'app_localizations_ja.dart';
+import 'app_localizations_ko.dart';
+import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
@@ -100,6 +102,8 @@ abstract class AppLocalizations {
     Locale('es'),
     Locale('fr'),
     Locale('ja'),
+    Locale('ko'),
+    Locale('zh'),
   ];
 
   /// No description provided for @appTitle.
@@ -191,6 +195,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'French'**
   String get languageFrench;
+
+  /// No description provided for @languageChinese.
+  ///
+  /// In en, this message translates to:
+  /// **'Chinese'**
+  String get languageChinese;
+
+  /// No description provided for @languageKorean.
+  ///
+  /// In en, this message translates to:
+  /// **'Korean'**
+  String get languageKorean;
 }
 
 class _AppLocalizationsDelegate
@@ -203,8 +219,14 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'es', 'fr', 'ja'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'en',
+    'es',
+    'fr',
+    'ja',
+    'ko',
+    'zh',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -221,6 +243,10 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsFr();
     case 'ja':
       return AppLocalizationsJa();
+    case 'ko':
+      return AppLocalizationsKo();
+    case 'zh':
+      return AppLocalizationsZh();
   }
 
   throw FlutterError(

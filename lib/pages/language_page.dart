@@ -78,6 +78,18 @@ class _LanguagePageState extends State<LanguagePage> {
                 ),
                 const SizedBox(height: 12),
 
+                // Franch
+                _buildLanguageOption(
+                  context: context,
+                  ref: ref,
+                  currentLocale: currentLocale,
+                  languageCode: 'fr',
+                  flagAsset: AppConstants.frFlag,
+                  languageName: AppLocalizations.of(context)!.languageFrench,
+                  languageSubtitle: AppConstants.languageFrench,
+                ),
+                const SizedBox(height: 12),
+
                 // Japanese
                 _buildLanguageOption(
                   context: context,
@@ -90,16 +102,29 @@ class _LanguagePageState extends State<LanguagePage> {
                 ),
                 const SizedBox(height: 12),
 
-                // Franch
+                // Korean
                 _buildLanguageOption(
                   context: context,
                   ref: ref,
                   currentLocale: currentLocale,
-                  languageCode: 'fr',
-                  flagAsset: AppConstants.frFlag,
-                  languageName: AppLocalizations.of(context)!.languageFrench,
-                  languageSubtitle: AppConstants.languageFrench,
+                  languageCode: 'ko',
+                  flagAsset: AppConstants.koFlag,
+                  languageName: AppLocalizations.of(context)!.languageKorean,
+                  languageSubtitle: AppConstants.languageKorean,
                 ),
+                const SizedBox(height: 12),
+
+                // Chinese
+                _buildLanguageOption(
+                  context: context,
+                  ref: ref,
+                  currentLocale: currentLocale,
+                  languageCode: 'zh',
+                  flagAsset: AppConstants.zhFlag,
+                  languageName: AppLocalizations.of(context)!.languageChinese,
+                  languageSubtitle: AppConstants.languageChinese,
+                ),
+                const SizedBox(height: 12),
 
               ],
             );

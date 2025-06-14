@@ -1,0 +1,41 @@
+{
+  "@@locale": "ko",
+  "appTitle": "나의 정원",
+  "@appTitle": {},
+
+  "wateringButtonText": "식물에 물 주기",
+  "@wateringButtonText": {},
+  "wateringPlants": "식물에 물 주는 중...",
+  "@wateringPlants": {},
+  "humidityLevel": "습도 수준",
+  "@humidityLevel": {},
+  "batteryLevel": "배터리 수준",
+  "@batteryLevel": {},
+
+  "notificationsTitle": "알림",
+  "@notificationsTitle": {},
+  "noNotifications": "아직 알림이 없습니다!",
+  "@noNotifications": {},
+
+  "settingsTitle": "설정",
+  "@settingsTitle": {},
+  "lightDarkMode": "밝은/어두운 모드",
+  "@lightDarkMode": {},
+  "language": "언어",
+  "@language": {},
+
+  "languageSelection": "언어",
+  "@languageSelection": {},
+  "languageEnglishUS": "영어",
+  "@languageEnglishUS": {},
+  "languageSpanishMX": "스페인어",
+  "@languageSpanishMX": {},
+  "languageJapanese": "일본어",
+  "@languageJapanese": {},
+  "languageFrench": "프랑스어",
+  "@languageFrench": {},
+  "languageChinese": "중국어",
+  "@languageChinese": {},
+  "languageKorean": "한국어",
+  "@languageKorean": {}
+}

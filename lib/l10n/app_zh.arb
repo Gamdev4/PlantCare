@@ -1,0 +1,41 @@
+{
+  "@@locale": "zh",
+  "appTitle": "我的花园",
+  "@appTitle": {},
+
+  "wateringButtonText": "浇水植物",
+  "@wateringButtonText": {},
+  "wateringPlants": "正在给植物浇水...",
+  "@wateringPlants": {},
+  "humidityLevel": "湿度等级",
+  "@humidityLevel": {},
+  "batteryLevel": "电池电量",
+  "@batteryLevel": {},
+
+  "notificationsTitle": "通知",
+  "@notificationsTitle": {},
+  "noNotifications": "尚无通知！",
+  "@noNotifications": {},
+
+  "settingsTitle": "设置",
+  "@settingsTitle": {},
+  "lightDarkMode": "亮/暗模式",
+  "@lightDarkMode": {},
+  "language": "语言",
+  "@language": {},
+
+  "languageSelection": "语言",
+  "@languageSelection": {},
+  "languageEnglishUS": "英语",
+  "@languageEnglishUS": {},
+  "languageSpanishMX": "西班牙语",
+  "@languageSpanishMX": {},
+  "languageJapanese": "日语",
+  "@languageJapanese": {},
+  "languageFrench": "法语",
+  "@languageFrench": {},
+  "languageChinese": "中文",
+  "@languageChinese": {},
+  "languageKorean": "韩语",
+  "@languageKorean": {}
+}

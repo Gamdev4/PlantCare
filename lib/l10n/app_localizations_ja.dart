@@ -9,13 +9,13 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get appTitle => 'マイガーデン';
+  String get appTitle => '私の庭';
 
   @override
   String get wateringButtonText => '植物に水をやる';
 
   @override
-  String get wateringPlants => '植物に水をやっています…';
+  String get wateringPlants => '植物に水やり中...';
 
   @override
   String get humidityLevel => '湿度レベル';
@@ -52,4 +52,10 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get languageFrench => 'フランス語';
+
+  @override
+  String get languageChinese => '中国語';
+
+  @override
+  String get languageKorean => '韓国語';
 }
