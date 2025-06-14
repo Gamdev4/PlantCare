@@ -8,7 +8,7 @@ class HumidityLevel extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Colors.grey[800],
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Padding(
@@ -19,7 +19,7 @@ class HumidityLevel extends StatelessWidget {
           children: [
             Icon(
               Icons.water_drop,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onPrimary,
               size: 24,
             ),
             const SizedBox(width: 8),
@@ -29,18 +29,18 @@ class HumidityLevel extends StatelessWidget {
               children: [
                 Text(
                   AppLocalizations.of(context)!.humidityLevel,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white70,
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
                   ),
                 ),
-                const Text(
-                  "100%", // Example humidity level
+                Text(
+                  "100%", // Example humedity level
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
               ],

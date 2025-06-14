@@ -2,24 +2,26 @@
 import 'package:flutter/material.dart';
 import 'package:namer_app/l10n/app_localizations.dart';
 import 'package:namer_app/pages/language_page.dart';
+import 'package:namer_app/providers/theme_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SettingsDrawer extends StatelessWidget {
+class SettingsDrawer extends ConsumerWidget {
   const SettingsDrawer({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Drawer(
-      backgroundColor: Colors.grey[800],
+      backgroundColor: Theme.of(context).colorScheme.primary,
       child: Column(
         children: [
-          // Header
 
+          // Header
           DrawerHeader(child: 
             Center(
               child: Text(
                 AppLocalizations.of(context)!.settingsTitle,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Theme.of(context).colorScheme.onPrimary,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
@@ -29,22 +31,23 @@ class SettingsDrawer extends StatelessWidget {
 
           // Light/Dark Mode Toggle
           ListTile(
-            leading: Icon(Icons.brightness_6, color: Colors.white),
+            leading: Icon(Icons.brightness_6, color: Theme.of(context).colorScheme.onPrimary),
             title: Text(
               AppLocalizations.of(context)!.lightDarkMode,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
             ),
             onTap: () {
-              // Implement light/dark mode toggle functionality
+              final themeNotifier = ref.read(themeProvider.notifier);
+              themeNotifier.toggleTheme();
             },
           ),
 
           // Language Selection
           ListTile(
-            leading: Icon(Icons.language, color: Colors.white),
+            leading: Icon(Icons.language, color: Theme.of(context).colorScheme.onPrimary),
             title: Text(
               AppLocalizations.of(context)!.language,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
             ),
             onTap: () {
               Navigator.push(

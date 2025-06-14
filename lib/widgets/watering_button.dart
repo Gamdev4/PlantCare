@@ -40,7 +40,7 @@ class _WateringButtonState extends State<WateringButton> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           decoration: BoxDecoration(
-            color: _isPressing || _isPressed ?const Color.fromARGB(255, 85, 85, 85) : Colors.grey[800],
+            color: _isPressing || _isPressed ?Theme.of(context).colorScheme.primaryContainer : Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(15.0),
           ),
           padding: const EdgeInsets.all(20.0),
@@ -50,7 +50,7 @@ class _WateringButtonState extends State<WateringButton> {
               style: TextStyle(
                 fontSize: _isPressing ? 18 : 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onPrimary,
               ),
               child: Text(
                 _isPressed ? AppLocalizations.of(context)!.wateringPlants : AppLocalizations.of(context)!.wateringButtonText,),

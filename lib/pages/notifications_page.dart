@@ -7,20 +7,20 @@ class NotificationsPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: const Color.fromARGB(255, 122, 122, 122),
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
     
       // Bar
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.notificationsTitle, style: TextStyle(color: Colors.white,fontSize: 24),),
+        title: Text(AppLocalizations.of(context)!.notificationsTitle, style: TextStyle(color: Theme.of(context).colorScheme.onPrimary,fontSize: 24),),
         centerTitle: false,
-        backgroundColor: const Color.fromARGB(255, 122, 122, 122),
-        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
       ),
       
       body: Center(
           child: Text(
             AppLocalizations.of(context)!.noNotifications,
-            style: TextStyle(fontSize: 20, color: Colors.white),
+            style: TextStyle(fontSize: 20, color: Theme.of(context).colorScheme.onPrimary),
           ),
       ),
     );

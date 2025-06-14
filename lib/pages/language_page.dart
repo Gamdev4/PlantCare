@@ -25,20 +25,20 @@ class _LanguagePageState extends State<LanguagePage> {
       appBar: AppBar(
         title: Text(
           AppLocalizations.of(context)!.languageSelection,
-          style: const TextStyle(color: Colors.white, fontSize: 24),
+          style: TextStyle(color: Theme.of(context).colorScheme.onPrimary, fontSize: 24),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 122, 122, 122),
-        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        iconTheme: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),
       ),
 
       // Background
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color.fromARGB(255, 126, 126, 126),
-              Color.fromARGB(255, 80, 80, 80),
+              Theme.of(context).colorScheme.primary,
+              Theme.of(context).scaffoldBackgroundColor,
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -145,10 +145,10 @@ class _LanguagePageState extends State<LanguagePage> {
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
           color: isSelected 
-              ? Colors.grey[500] 
+              ? Theme.of(context).colorScheme.secondary 
               : (isBeingPressed 
-                  ? const Color.fromARGB(255, 85, 85, 85) 
-                  : Colors.grey[800]),
+                  ? Theme.of(context).colorScheme.primaryContainer 
+                  : Theme.of(context).colorScheme.primary),
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: SizedBox(
@@ -167,7 +167,7 @@ class _LanguagePageState extends State<LanguagePage> {
                   child: AnimatedDefaultTextStyle(
                     duration: const Duration(milliseconds: 200),
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onPrimary,
                       fontSize: isBeingPressed ? 18 : 20,
                       fontWeight: FontWeight.normal,
                     ),
@@ -177,7 +177,7 @@ class _LanguagePageState extends State<LanguagePage> {
                 AnimatedDefaultTextStyle(
                   duration: const Duration(milliseconds: 200),
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onPrimary,
                     fontSize: isBeingPressed ? 10 : 12,
                     fontWeight: FontWeight.normal,
                   ),

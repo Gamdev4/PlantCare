@@ -18,17 +18,17 @@ class HomePage extends StatelessWidget {
       // Bar
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text(AppLocalizations.of(context)!.appTitle, style: const TextStyle(
+        title: Text(AppLocalizations.of(context)!.appTitle, style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.grey[800],
+        backgroundColor: Theme.of(context).colorScheme.primary,
         leading: Builder(
           builder: (context) => IconButton(
-            icon: const Icon(Icons.settings, color: Colors.white),
+            icon: Icon(Icons.settings, color: Theme.of(context).colorScheme.onPrimary),
             onPressed: () {
              Scaffold.of(context).openDrawer();
             },
@@ -36,9 +36,9 @@ class HomePage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.notifications,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onPrimary,
             ),
             onPressed: () {
               Navigator.push(
@@ -55,8 +55,8 @@ class HomePage extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              const Color.fromARGB(255, 126, 126, 126),
-              const Color.fromARGB(255, 80, 80, 80),
+              Theme.of(context).colorScheme.primary,
+              Theme.of(context).scaffoldBackgroundColor,
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
