@@ -24,13 +24,52 @@ class AppLocalizationsEs extends AppLocalizations {
   String get batteryLevel => 'Nivel de Batería';
 
   @override
+  String get addSchedule => 'Agregar Horario';
+
+  @override
+  String get scheduleConfig => 'Configuración de Horario';
+
+  @override
+  String get daily => 'Diario';
+
+  @override
+  String get twoDays => 'Cada 2 Días';
+
+  @override
+  String get threeDays => 'Cada 3 Días';
+
+  @override
+  String get weekly => 'Semanal';
+
+  @override
+  String get monthly => 'Mensual';
+
+  @override
+  String get seconds => 'Segundos';
+
+  @override
+  String get secondsAbbrev => 's';
+
+  @override
+  String get time => 'Hora: ';
+
+  @override
+  String get frequency => 'Frecuencia: ';
+
+  @override
+  String get duration => 'Duración: ';
+
+  @override
+  String get saveSchedule => 'Guardar Horario';
+
+  @override
   String get notificationsTitle => 'Notificaciones';
 
   @override
   String get noNotifications => '¡Aún no hay notificaciones!';
 
   @override
-  String get settingsTitle => 'Configuración';
+  String get settingsTitle => 'Configuraciones';
 
   @override
   String get lightDarkMode => 'Modo Claro/Oscuro';

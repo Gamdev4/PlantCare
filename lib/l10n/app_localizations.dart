@@ -136,6 +136,84 @@ abstract class AppLocalizations {
   /// **'Battery Level'**
   String get batteryLevel;
 
+  /// No description provided for @addSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Schedule'**
+  String get addSchedule;
+
+  /// No description provided for @scheduleConfig.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule Configuration'**
+  String get scheduleConfig;
+
+  /// No description provided for @daily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get daily;
+
+  /// No description provided for @twoDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Every 2 Days'**
+  String get twoDays;
+
+  /// No description provided for @threeDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Every 3 Days'**
+  String get threeDays;
+
+  /// No description provided for @weekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get weekly;
+
+  /// No description provided for @monthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get monthly;
+
+  /// No description provided for @seconds.
+  ///
+  /// In en, this message translates to:
+  /// **'Seconds'**
+  String get seconds;
+
+  /// No description provided for @secondsAbbrev.
+  ///
+  /// In en, this message translates to:
+  /// **'s'**
+  String get secondsAbbrev;
+
+  /// No description provided for @time.
+  ///
+  /// In en, this message translates to:
+  /// **'Time: '**
+  String get time;
+
+  /// No description provided for @frequency.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequency: '**
+  String get frequency;
+
+  /// No description provided for @duration.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration: '**
+  String get duration;
+
+  /// No description provided for @saveSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Schedule'**
+  String get saveSchedule;
+
   /// No description provided for @notificationsTitle.
   ///
   /// In en, this message translates to:

@@ -12,16 +12,55 @@ class AppLocalizationsKo extends AppLocalizations {
   String get appTitle => '나의 정원';
 
   @override
-  String get wateringButtonText => '식물에 물 주기';
+  String get wateringButtonText => '식물 물주기';
 
   @override
-  String get wateringPlants => '식물에 물 주는 중...';
+  String get wateringPlants => '식물에 물을 주는 중...';
 
   @override
   String get humidityLevel => '습도 수준';
 
   @override
   String get batteryLevel => '배터리 수준';
+
+  @override
+  String get addSchedule => '일정 추가';
+
+  @override
+  String get scheduleConfig => '일정 구성';
+
+  @override
+  String get daily => '매일';
+
+  @override
+  String get twoDays => '2일마다';
+
+  @override
+  String get threeDays => '3일마다';
+
+  @override
+  String get weekly => '매주';
+
+  @override
+  String get monthly => '매달';
+
+  @override
+  String get seconds => '초';
+
+  @override
+  String get secondsAbbrev => '초';
+
+  @override
+  String get time => '시간: ';
+
+  @override
+  String get frequency => '빈도: ';
+
+  @override
+  String get duration => '지속 시간: ';
+
+  @override
+  String get saveSchedule => '일정 저장';
 
   @override
   String get notificationsTitle => '알림';
@@ -33,7 +72,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get settingsTitle => '설정';
 
   @override
-  String get lightDarkMode => '밝은/어두운 모드';
+  String get lightDarkMode => '라이트/다크 모드';
 
   @override
   String get language => '언어';

@@ -24,6 +24,45 @@ class AppLocalizationsFr extends AppLocalizations {
   String get batteryLevel => 'Niveau de Batterie';
 
   @override
+  String get addSchedule => 'Ajouter un Horaire';
+
+  @override
+  String get scheduleConfig => 'Configuration de l\'Agenda';
+
+  @override
+  String get daily => 'Quotidien';
+
+  @override
+  String get twoDays => 'Tous les 2 Jours';
+
+  @override
+  String get threeDays => 'Tous les 3 Jours';
+
+  @override
+  String get weekly => 'Hebdomadaire';
+
+  @override
+  String get monthly => 'Mensuel';
+
+  @override
+  String get seconds => 'Secondes';
+
+  @override
+  String get secondsAbbrev => 's';
+
+  @override
+  String get time => 'Heure : ';
+
+  @override
+  String get frequency => 'Fréquence : ';
+
+  @override
+  String get duration => 'Durée : ';
+
+  @override
+  String get saveSchedule => 'Enregistrer l\'Agenda';
+
+  @override
   String get notificationsTitle => 'Notifications';
 
   @override

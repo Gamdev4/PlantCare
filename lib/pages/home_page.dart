@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
@@ -5,6 +6,7 @@ import 'package:namer_app/constants/app_constants.dart';
 import 'package:namer_app/l10n/app_localizations.dart';
 import 'package:namer_app/pages/drawer/settings.dart';
 import 'package:namer_app/pages/notifications_page.dart';
+import 'package:namer_app/widgets/auto_watering.dart';
 import 'package:namer_app/widgets/batery_level.dart';
 import 'package:namer_app/widgets/humidity_level.dart';
 import 'package:namer_app/widgets/watering_button.dart';
@@ -23,11 +25,94 @@ class _HomePageState extends State<HomePage> {
   String _connectionStatus = 'Disconnected';
   int _humidityLevel = 0;
   List<BluetoothDevice> _devices = [];
+  Timer? _wateringTimer;
+  List<WateringSchedule> wateringSchedules = [];
 
   @override
   void initState() {
     super.initState();
     _initBluetooth();
+    _startWateringChecker();
+  }
+
+  @override
+  void dispose() {
+    _wateringTimer?.cancel();
+    _connection?.dispose();
+    super.dispose();
+  }
+
+  void _startWateringChecker() {
+    _wateringTimer = Timer.periodic(const Duration(minutes: 1), (timer) {
+      _checkWateringSchedules();
+    });
+  }
+
+  void _checkWateringSchedules() {
+    final now = DateTime.now();
+    
+    for (var schedule in wateringSchedules) {
+      if (_shouldWaterNow(schedule, now)) {
+        _startAutoWatering(schedule.duration);
+        schedule.lastWatered = now;
+      }
+    }
+  }
+
+  bool _shouldWaterNow(WateringSchedule schedule, DateTime now) {
+    final scheduledTime = DateTime(now.year, now.month, now.day, 
+                                 schedule.time.hour, schedule.time.minute);
+    final diffMinutes = now.difference(scheduledTime).inMinutes.abs();
+    
+    if (diffMinutes > 1) {
+      return false;
+    }
+    
+    if (schedule.lastWatered != null && 
+        schedule.lastWatered!.year == now.year &&
+        schedule.lastWatered!.month == now.month &&
+        schedule.lastWatered!.day == now.day) {
+      return false;
+    }
+    
+    return _checkFrequency(schedule, now);
+  }
+
+  bool _checkFrequency(WateringSchedule schedule, DateTime now) {
+    if (schedule.lastWatered == null) {
+      return true;
+    }
+    
+    final daysSinceLastWatering = now.difference(schedule.lastWatered!).inDays;
+    
+    switch (schedule.frequency) {
+      case 'daily':
+        return daysSinceLastWatering >= 1;
+      case 'twoDays':
+        return daysSinceLastWatering >= 2;
+      case 'threeDays':
+        return daysSinceLastWatering >= 3;
+      case 'weekly':
+        return daysSinceLastWatering >= 7;
+      case 'monthly':
+        return daysSinceLastWatering >= 30;
+      default:
+        return false;
+    }
+  }
+
+  void _startAutoWatering(int durationSeconds) {
+    if (_isWatering) return;
+    
+    setState(() => _isWatering = true);
+    _sendCommand('1');
+    
+    Future.delayed(Duration(seconds: durationSeconds), () {
+      if (mounted) {
+        setState(() => _isWatering = false);
+        _sendCommand('0');
+      }
+    });
   }
 
   Future<void> _initBluetooth() async {
@@ -107,12 +192,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
-  void dispose() {
-    _connection?.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const SettingsDrawer(),
@@ -187,8 +266,6 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
 
-
-
       // Background
       body: Container(
         decoration: BoxDecoration(
@@ -246,12 +323,29 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+
+              // Auto Watering
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: AutoWatering(
+                  schedules: wateringSchedules,
+                  onScheduleAdded: (schedule) {
+                    setState(() {
+                      wateringSchedules.add(schedule);
+                    });
+                  },
+                  onScheduleRemoved: (index) {
+                    setState(() {
+                      wateringSchedules.removeAt(index);
+                    });
+                  },
+                ),
+              ),
+
             ],
           ),
         ),
       ),
-
-
     );
   }
 }

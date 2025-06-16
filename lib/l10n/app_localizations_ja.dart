@@ -15,13 +15,52 @@ class AppLocalizationsJa extends AppLocalizations {
   String get wateringButtonText => '植物に水をやる';
 
   @override
-  String get wateringPlants => '植物に水やり中...';
+  String get wateringPlants => '植物に水をやっています...';
 
   @override
   String get humidityLevel => '湿度レベル';
 
   @override
   String get batteryLevel => 'バッテリーレベル';
+
+  @override
+  String get addSchedule => 'スケジュールを追加';
+
+  @override
+  String get scheduleConfig => 'スケジュール設定';
+
+  @override
+  String get daily => '毎日';
+
+  @override
+  String get twoDays => '2日ごと';
+
+  @override
+  String get threeDays => '3日ごと';
+
+  @override
+  String get weekly => '毎週';
+
+  @override
+  String get monthly => '毎月';
+
+  @override
+  String get seconds => '秒';
+
+  @override
+  String get secondsAbbrev => '秒';
+
+  @override
+  String get time => '時間: ';
+
+  @override
+  String get frequency => '頻度: ';
+
+  @override
+  String get duration => '期間: ';
+
+  @override
+  String get saveSchedule => 'スケジュールを保存';
 
   @override
   String get notificationsTitle => '通知';
